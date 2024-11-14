@@ -1,3 +1,4 @@
+// ------------ASHLEY-------------------------------------------------
 import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link, Routes, Route, useMatch, useResolvedPath, useNavigate } from "react-router-dom"
@@ -30,14 +31,14 @@ const packageStatus = () => {
       }
 
       try {
-        const response = await axios.post('http://localhost:3000/user/package-status', { 
+        const response = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com/user/package-status', { 
           userID: userID
         });
         
         setPackages(response.data); 
       } catch (error) {
         console.error('Error fetching packages:', error);
-        alert('Failed to fetch packages');
+        alert('Failed to get package status');
       }
     };
 
@@ -53,7 +54,7 @@ const packageStatus = () => {
 
     try{
 
-      const response = await axios.post('http://localhost:3000/user/package-info', { 
+      const response = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com/user/package-info', { 
             trackingNumber: trackingNumber
         });
       console.log(response.data);
@@ -75,7 +76,7 @@ const packageStatus = () => {
     
 
     try {
-        const response = await axios.post('http://localhost:3000/user/add-package', { 
+        const response = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com/user/add-package', { 
             trackingNumber: trackingNumber,
             role: role,
             userID: userID
@@ -84,6 +85,7 @@ const packageStatus = () => {
         setIsAddOpen(false);
         setTrackingNumber('');
         setRole('');
+
     } catch (err) {
         setError("Failed to fetch package details. Please try again.");
     } finally {
@@ -222,3 +224,4 @@ const packageStatus = () => {
   );
 };  
 export default packageStatus;
+// ------------ASHLEY (END)-------------------------------------------------

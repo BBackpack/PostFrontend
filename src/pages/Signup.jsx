@@ -49,6 +49,7 @@ const Signup = () => {
         setErrMsg('');
     }, [user, pwd, matchPwd]);
 
+    // ------------ASHLEY-------------------------------------------------
     const handleSubmit = async (e) => {
         e.preventDefault();
         const v1 = USER_REGEX.test(user);
@@ -59,7 +60,7 @@ const Signup = () => {
         }
         try {
             console.log("Account Type:", accountType);
-            const response = await axios.post('http://localhost:3000/guest/signup', {
+            const response = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com/guest/signup', {
                 username: user,
                 password: pwd,
                 accountType: accountType
@@ -78,6 +79,7 @@ const Signup = () => {
             }
         }
     };
+    // ------------ASHLEY (END)-------------------------------------------------
 
     return (
         <div className="container">
