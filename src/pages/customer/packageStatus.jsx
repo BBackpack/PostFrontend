@@ -82,9 +82,11 @@ const packageStatus = () => {
             userID: userID
         });
 
-        setIsAddOpen(false);
-        setTrackingNumber('');
-        setRole('');
+        if (response.data.success) {
+          setIsAddOpen(false);
+          setTrackingNumber('');
+          setRole('');
+      }
 
     } catch (err) {
         setError("Failed to fetch package details. Please try again.");
