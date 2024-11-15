@@ -50,7 +50,6 @@ const packageStatus = () => {
     setLoading(true);
     setError("");
     setModalData(null);
-    
 
 
     try{
@@ -70,7 +69,6 @@ const packageStatus = () => {
 
 
   const handleAddPackage = async (e) => {
-    e.preventDefault();
     setIsAddOpen(true);
     setLoading(true);
     setError("");
@@ -85,6 +83,8 @@ const packageStatus = () => {
         });
 
         setIsAddOpen(false);
+        setTrackingNumber('');
+        setRole('');
 
     } catch (err) {
         setError("Failed to fetch package details. Please try again.");
