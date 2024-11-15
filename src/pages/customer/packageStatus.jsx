@@ -77,6 +77,12 @@ const packageStatus = () => {
       setLoading(true);
       setError(""); 
       setModalData(null);
+      
+      if (!trackingNumber || !role) {
+        setError('Please provide both tracking number and role.');
+        setLoading(false);
+        return;
+    }
 
       try {
           const response = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com/user/add-package', { 
