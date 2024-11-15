@@ -75,7 +75,6 @@ const packageStatus = () => {
     setLoading(true);
     setError("");
     setModalData(null);
-    const navigate = useNavigate();
     
 
     try {
@@ -86,9 +85,6 @@ const packageStatus = () => {
         });
 
         setIsAddOpen(false);
-        setTrackingNumber('');
-        setRole('');
-        navigate('/package-status');
 
     } catch (err) {
         setError("Failed to fetch package details. Please try again.");
