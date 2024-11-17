@@ -4,7 +4,7 @@ import { Link, useMatch, useResolvedPath, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ManagerNavbar } from "../../components/Navbars";
 import '../../styles/employeeHome.css';
-
+import axios from 'axios';
 const managerHome = () => {
     const userID = localStorage.getItem('userID');
     const userRole = localStorage.getItem('userRole');
@@ -13,7 +13,7 @@ const managerHome = () => {
     useEffect(() => {
     
       const getInfo = async () => {
-          if (!userID || userRole != 'employee') {
+          if (!userID || userRole != 'manager') {
               alert('User not logged in');
               navigate('/');
           }
@@ -39,7 +39,7 @@ const managerHome = () => {
     return (
         <div className="container">
         {/* Navigation bar */}
-        <Manager />
+        <ManagerNavbar />
   
         {/* Main content area */}
         <div className="home-content" style={{
