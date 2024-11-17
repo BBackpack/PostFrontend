@@ -18,9 +18,12 @@ const Profile = () => {
     const [zip, setZip] = useState('');
     const [country, setCountry] = useState('');
     const [pwd, setPwd] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumer] = useState('');
     const [pwdValid, setPwdValid] = useState(false);
     const [errMsg, setErrMsg] = useState('');
     const userID = localStorage.getItem('userID');
+    const userRole = localStorage.getItem('userRole');
 
     const handlePasswordChange = (e) => {
         const password = e.target.value;
@@ -40,10 +43,10 @@ const Profile = () => {
     useEffect(() => {
     
         const getInfo = async () => {
-          if (!userID) {
-            alert('User not logged in');
-            navigate('/');
-          }
+            if (!userID || userRole != 'customer') {
+                alert('User not logged in');
+                navigate('/');
+            }
     
           try {
             const response = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com/user/customer-info', { 
@@ -59,6 +62,8 @@ const Profile = () => {
             setZip(response.data.zipcode);
             setCountry(response.data.country);
             setPwd(response.data.password);
+            setPhoneNumer(response.data.phoneNumber);
+            setEmail(response.data.email);
 
           } catch (error) {
             console.error('Error getting user info:', error);
@@ -87,7 +92,9 @@ const Profile = () => {
                 state: state,
                 zipcode: zip,
                 country: country,
-                password: pwd
+                password: pwd,
+                phoneNumber: phoneNumber,
+                email: email
             });
 
             if (response.data.success) {
@@ -173,6 +180,29 @@ const Profile = () => {
                             </label>
                             <br />
                             <label>
+                                Phone Number:
+                                <input
+                                    type="text"
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumer(e.target.value)}
+                                    required
+                                    maxLength="20"
+                                />
+                            </label>
+                            <br />
+                            
+                            <label>
+                                Email:
+                                <input
+                                    type="text"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                    maxLength="30"
+                                />
+                            </label>
+                            <br />
+                            <label>
                                 City:
                                 <input
                                     type="text"
@@ -208,7 +238,7 @@ const Profile = () => {
                             <label>
                                 Zip Code:
                                 <input
-                                    type="text"
+                                    type="number"
                                     value={zip}
                                     onChange={(e) => {
                                         const value = e.target.value;

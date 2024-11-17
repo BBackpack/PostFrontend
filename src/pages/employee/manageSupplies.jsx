@@ -5,6 +5,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../styles/manageSupplies.css";
 
 const manageSupplies = () => {
+    const userID = localStorage.getItem('userID');
+    const userRole = localStorage.getItem('userRole');
+
+    useEffect(() => {
+    
+      const getInfo = async () => {
+          if (!userID || userRole != 'employee') {
+              alert('User not logged in');
+              navigate('/');
+          }
+      };
+
+      getInfo();
+    }, []);
+    
     // Supplies data state
     const [supplies, setSupplies] = useState([
       { id: 1, name: "Tape", quantity: 5, status: "Low" },
@@ -30,9 +45,9 @@ const manageSupplies = () => {
         <nav className="nav">
           <Link to="/manage-supplies" className="homePage">Employee Dashboard</Link>
           <ul>
-            <li><Link to="/employee-supplies">Dashboard</Link></li>
+            <li><Link to="/employee-home">Dashboard</Link></li>
             <li><Link to="/manage-packages">Manage Packages</Link></li>
-            <li><Link to="/employee-supplies" className="active">Supplies</Link></li>
+            <li><Link to="/manage-supplies" className="active">Manage Supplies</Link></li>
             <li><Link to="/incoming-packages">Incoming Packages</Link></li>
             <li><Link to="/employee-profile">Profile</Link></li>
             <li><Link to="/logout">Logout</Link></li>

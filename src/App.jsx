@@ -9,11 +9,12 @@ import reactLogo from './assets/react.svg'
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import TrackPackage from "./pages/trackPackage"
+import TrackPackage from "./pages/trackPackage";
 
 import CustomerHome from "./pages/customer/customerHome";
 import PackageHistory from "./pages/customer/packageHistory";
 import PackageStatus from "./pages/customer/packageStatus";
+import Supplies from "./pages/customer/supplies";
 
 import BusinessHome from "./pages/business/businessHome";
 import BusinessHistory from "./pages/business/businessHistory";
@@ -23,6 +24,7 @@ import BusinessPackage from "./pages/business/businessPackage";
 
 import AdminHome from "./pages/admin/adminHome";
 import EmployeeHome from "./pages/employee/employeeHome";
+import EmployeeProfile from "./pages/employee/employeeProfile";
 import ManagerHome from "./pages/employee/managerHome";
 import IncomingPackages from "./pages/employee/incomingPackages";
 import ManagePackage from "./pages/employee/managePackage";
@@ -62,9 +64,10 @@ function App() {
             <Route path="/package-history" element={<PackageHistory />} />
             <Route path="/package-status" element={<PackageStatus />} />
             <Route path="/customer-profile" element={<CustomerProfile />} />
+            <Route path="/supplies" element={<Supplies />} />
 
             <Route path ="/business-home" element={<BusinessHome />} />
-            <Route path ="/business-package-create" element={<BusinessPackage />} />
+            <Route path ="/business-create-package" element={<BusinessPackage />} />
             <Route path ="/business-history" element={<BusinessHistory />} />
             <Route path ="/business-status" element={<BusinessStatus />} />
             <Route path ="/business-profile" element={<BusinessProfile />} />
@@ -77,6 +80,8 @@ function App() {
             <Route path="/manage-supplies" element={<ManageSupplies />} />
             <Route path="/manage-employees" element={<ManageEmployee />} />
             <Route path="/manage-trucks" element={<ManageTruck />} />
+            <Route path="/employee-profile" element={<EmployeeProfile />} />
+
 
             <Route path="/manage-all-locations" element={<ManageAllLocations />} />
             <Route path="/manage-all-offices" element={<ManageAllOffices />} />
