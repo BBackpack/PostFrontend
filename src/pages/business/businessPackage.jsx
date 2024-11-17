@@ -65,10 +65,10 @@ const CreatePackage = () => {
             }
 
             try {
-                const response = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com//data/get-prio');
+                const response = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com/data/get-prio');
                 setDeliveryPriorities(response.data);
 
-                const officeResponse = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com//data/get-offices');
+                const officeResponse = await axios.post('https://post-backend-2f54f7162fc4.herokuapp.com/data/get-offices');
                 setOffices(officeResponse.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
