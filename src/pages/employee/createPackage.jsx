@@ -1,5 +1,4 @@
 //----------------ASHLEY (form too long to fit in modal)
-// ------------ASHLEY-------------------------------------------------
 import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link, Routes, Route, useMatch, useResolvedPath, useNavigate } from "react-router-dom"
@@ -125,7 +124,7 @@ const managePackage = () => {
                                   onChange={(e) => setUID(e.target.value)}
                                   maxLength={20}
                                   />
-                      <h3>Receiver</h3>
+                            <h3>Receiver</h3>
                               <div className="input-format">
                                   <label>First Name:</label>
                                   <input 
@@ -316,12 +315,6 @@ const managePackage = () => {
                       </div>
                           <button type="submit">Create Package</button>
                 </form>
-
-                <button onClick={() => setCreateOpen(false)}>Cancel</button>
-
-
-
-        
       </div>
     );
   };
