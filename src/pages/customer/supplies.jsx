@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import {CustomerNavbar} from "../../components/Navbars"
 import "../../styles/supplies.css";
 
 const Supplies = () => {
