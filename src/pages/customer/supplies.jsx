@@ -42,6 +42,7 @@ const Supplies = () => {
 
   return (
     <div className="container">
+      <CustomerNavbar />
       <h1>Supplies</h1>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
