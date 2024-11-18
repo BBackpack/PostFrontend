@@ -37,7 +37,7 @@ const adminReports = () => {
     setError(null);
     try {
       const response = await axios.post(
-        `https://post-backend-2f54f7162fc4.herokuapp.com/backend/admin-report/${queryType}`,
+        `https://post-backend-2f54f7162fc4.herokuapp.com/admin-report/${queryType}`,
         {
           queryType,
           timeframe,
