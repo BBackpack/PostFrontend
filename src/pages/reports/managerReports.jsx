@@ -74,7 +74,7 @@ const managerReports = () => {
     try {
       /* DEF WRONG FOR POST */
       const response = await axios.post(
-        "http://localhost:3001/admin/total-packages-deleted",
+        "https://post-backend-2f54f7162fc4.herokuapp.com/admin/total-packages-deleted",
         {
           queryType,
           timeframe,
