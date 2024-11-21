@@ -13,6 +13,7 @@ const Supplies = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [oid, setOid] = useState(""); // New state for OID filtering
   const [availableOids, setAvailableOids] = useState([]); // Optional: Predefined OIDs
+  const userRole = localStorage.getItem('userRole');
   const navigate = useNavigate();
 
   // Fetch OIDs (Optional, if you want to dynamically fetch available OIDs)
