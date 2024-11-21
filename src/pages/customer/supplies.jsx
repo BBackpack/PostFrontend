@@ -35,8 +35,8 @@ const Supplies = () => {
   setLoading(true);
   try {
     const url = oid
-      ? `https://post-backend-2f54f7162fc4.herokuapp.com/supplies/supplies?oid=${oid}`
-      : "https://post-backend-2f54f7162fc4.herokuapp.com/supplies/supplies";
+      ? `http://localhost:3000/supplies/supplies?oid=${oid}`
+      : "http://localhost:3000/supplies/supplies";
     console.log("Fetching supplies with URL:", url); // Debug log
     const response = await axios.get(url);
     setSupplies(response.data);
