@@ -59,19 +59,22 @@ const managerReports = () => {
       console.error("Error fetching report data:", error);
     }
   };
-  
+
+  useEffect(() => {
+    if (startDate && endDate) {
+      fetchReportData(activeTab);
+    }
+  }, [startDate, endDate, activeTab]);
+
   useEffect(() => {
     const getInfo = async () => {
       if (!userID || userRole != "manager") {
         alert("User not logged in");
         navigate("/");
       }
-      if (startDate && endDate) {
-        fetchReportData(activeTab);
-      }
     };
     getInfo();
-  }, [startDate, endDate, activeTab]);
+  }, []);
 
   const handleTimeframeChange = (event) => {
     setTimeframe(event.target.value);
